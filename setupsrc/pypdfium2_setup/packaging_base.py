@@ -437,11 +437,11 @@ def run_ctypesgen(target_dir, headers_dir, flags=[], guard_symbols=False, compil
     # library loading
     args = ["-l", "pdfium"]
     if run_lds:
-        args += ["--runtime-libdirs", *run_lds]
+        args += ["--rt-libpaths", *run_lds]
         if not allow_system_despite_libdirs:
             args += ["--no-system-libsearch"]
     if compile_lds:
-        args += ["--compile-libdirs", *compile_lds]
+        args += ["--ct-libpaths", *compile_lds]
     else:
         args += ["--no-load-library"]
     
